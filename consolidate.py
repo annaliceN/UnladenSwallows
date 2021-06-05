@@ -29,6 +29,3 @@ with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
             res = df.iloc[best_idx]["class"]
 
         output.writerow([img, res])
-        
-
-
