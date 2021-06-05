@@ -3,16 +3,13 @@ import pandas as pd
 import statistics
 import csv
 
-input = ["preds_resnet34_20epochs.csv", "preds_resnet50_8epochs.csv", "preds_resnext101_12epochs.csv"]
+input = ["preds_resnext101_12epochs.csv", "preds_resnet34_20epochs.csv", "preds_resnet50_8epochs.csv"]
 df1 = pd.read_csv('data/' + input[0])
 df2 = pd.read_csv('data/' + input[1])
 df3 = pd.read_csv('data/' + input[2])
 
 dfs = [df1, df2, df3]
-
-print(dfs[0])
-print(dfs[1])
-print(dfs[2])
+best_idx = 0
 
 fields = ["path", "class"]
 filename = "consolidated_preds.csv"
@@ -28,6 +25,9 @@ with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
             results.append(df.iloc[idx]["class"])
         
         res = statistics.mode(results)
+        if len(statistics.multimode(results)) == len(dfs):
+            res = df.iloc[best_idx]["class"]
+
         output.writerow([img, res])
         
 
