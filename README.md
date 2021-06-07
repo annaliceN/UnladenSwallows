@@ -1,3 +1,5 @@
 # CSE 455 Sp2021 - Kaggle Bird Competition
 ## Team Unladen Swallows
-Project website for CSE 455 final project.
+Team members: Donna Albee, Sam Lewis, Annalice Ni, Eric Yoon
+
+Check out our code for training a bird idenfitication model for the Bird Kaggle Competition!
