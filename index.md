@@ -42,7 +42,7 @@ Based on the list of torchvision models [here](https://pytorch.org/vision/stable
 
 After training and testing a few models, we realized that it would be necessary to create a validation set in order to get an idea for what our test accuracy may look like after every epoch of training. We created a validation dataset using 20% of the training dataset, and changed it to 10% later when we realized that taking too much of the training dataset to use as a validation set affected the accuracy of the models.
 
-We also attempted to aggregate the results of multiple models to try and increase accuracy overall. After making predictions on different models and submitting to see  test accuracy, we selected some of the highest-accuracy models. Using the predictions from these models, we combined the predictions for each image by picking the mode class from all the predicted classes. If there were multiple modes, we picked the class from the highest-accuracy model. This did not work very well, which we will discuss in a later section.
+We also attempted to combine the results of multiple models to try and increase accuracy overall. After making predictions on different models and submitting to see  test accuracy, we selected some of the highest-accuracy models. Using the predictions from these models, we combined the predictions for each image by picking the mode class from all the predicted classes. If there were multiple modes, we picked the class from the highest-accuracy model. This did not work very well, which we will discuss in a later section.
 
 #### Problems
 
@@ -87,6 +87,8 @@ We've included the following charts that show the best accuracies and lowest los
 Models with greater model sizes don’t necessarily mean better performance. ResNext models all tended to perform with higher accuracy than any of the ResNet or WideResNet models. On top of this, Increasing the size of a ResNet model did not result in dramatic improvements. Instead, model training and memory requirements became much greater. A model of greater size also means high model complexity, which can potentially lead to overfitting and thus not affect accuracy much.
 
 Using different types of models is more effective for improving general accuracy. ResNext outperforms the other models we tried by a considerable margin. ResNext adds a new style of transformation at each neuron which allows for the model to classify image data better than ResNet. Changing the structure of the model, rather than just adding more layers and neurons seems to be more efficient and effective at image classification.
+
+Attempting to combine the results of multiple models did not work very well. For example, when we tried to combine the results of .86, .80 and .82 accuracy models, the resulting accuracy was .85. We think that this was because the models were not diverse enough. As such, combining results would not provide new information and resulted in a lower accuracy than the most accurate model
 
 We could have been more scientific in our experiment approach. Early on in our testing, we changed many hyperparameters at once, like epoch size, learning_rate, and model type. It would have been a better approach scientifically to keep most hyperparameters as control, and changing only one at a time. When something seemed to work, we took the hyperparameters of that training session to use on a better model since we didn’t have infinite time to train each model on all the potential hyperparameters.
 
