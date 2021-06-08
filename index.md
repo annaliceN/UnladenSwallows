@@ -60,20 +60,21 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 2. Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model.
 
-#### Why the approach worked
-
 ### Experiments and Results
 
 #### Things we tried
 
+We experimented with different pretrained models. We wanted to see what pretrained models worked best with bird classification. We tried models like ResNet, ResNext and WideResNet as well as different variations of each model. For each model, we also experimented with different hyperparameters. Adjusting things like learning rate, weight decay and validation set size allowed us to increase accuracy. Another thing we tried adjusting was image size. We initially used 128 x 128 images, but later switched to 224 x 224 images.
+
 #### Best Overall
 
 The model that performed the best overall was ResNext101. This was unsurprising since the model was an
-advancement of the ResNet models and its accuracy shown in the torchvision documentation was one of the highest. We ended with a **86.6% test accuracy** when running ResNext101 with the following hyperparameters:
+advancement of the ResNet models and its accuracy shown in the torchvision documentation was one of the highest. We ended with a **86.6% test accuracy** when running ResNext101 on a 224x224 image size dataset with the following hyperparameters:
 
 * Epochs: 28
 * Learning rate schedule: 0:.01, 4:.001, 12:.0001
 * Weight decay: 0.001
+* Momentum: 0.9
 
 #### Findings
 
