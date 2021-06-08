@@ -30,7 +30,15 @@ For our dataset, we used the Bird Dataset provided by the Birds! Classification 
 
 #### Techniques
 
-We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get. We decided to use all of the ResNet models (18, 34, 50, 101, 152), WideResNet50, and both of the ResNext models (50, 101). Based on the list of torchvision models [here](https://pytorch.org/vision/stable/models.html) and also online blogs about image classification training, the accuracy of these groups of models were some of the highest of the ones provided. They were also similar in architecture, so it made sense to compare their experimental results. ResNet18 was the model used in the demo code provided in class, so we started with that model.
+We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get.
+
+We decided to use the following models:
+
+* ResNet models (18, 34, 50, 101, 152)
+* WideResNet50
+* ResNext models (50, 101)
+
+Based on the list of torchvision models [here](https://pytorch.org/vision/stable/models.html) and also online blogs about image classification training, the accuracy of these groups of models were some of the highest of the ones provided. They were also similar in architecture, so it made sense to compare their experimental results. ResNet18 was the model used in the demo code provided in class, so we started with that model.
 
 After training and testing a few models, we realized that it would be necessary to create a validation set in order to get an idea for what our test accuracy may look like after every epoch of training. We created a validation dataset using 20% of the training dataset, and changed it to 10% later when we realized that taking too much of the training dataset to use as a validation set affected the accuracy of the models.
 
@@ -75,12 +83,25 @@ We've included the following charts that show the best accuracies and lowest los
 
 #### What did / did not work well and why
 
+Models with greater model sizes don’t necessarily mean better performance. ResNext models all tended to perform with higher accuracy than any of the ResNet or WideResNet models. On top of this, Increasing the size of a ResNet model did not result in dramatic improvements. Instead, model training and memory requirements became much greater. A model of greater size also means high model complexity, which can potentially lead to overfitting and thus not affect accuracy much.
+
+Using different types of models is more effective for improving general accuracy. ResNext outperforms the other models we tried by a considerable margin. ResNext adds a new style of transformation at each neuron which allows for the model to classify image data better than ResNet. Changing the structure of the model, rather than just adding more layers and neurons seems to be more efficient and effective at image classification.
+
+We could have been more scientific in our experiment approach. Early on in our testing, we changed many hyperparameters at once, like epoch size, learning_rate, and model type. It would have been a better approach scientifically to keep most hyperparameters as control, and changing only one at a time. When something seemed to work, we took the hyperparameters of that training session to use on a better model since we didn’t have infinite time to train each model on all the potential hyperparameters.
+
 #### Learnings
+
+ResNet has increasing model sizes, but they did not result in better accuracy. Switching to a different type of model like ResNext was much better for accuracy. These ResNet variations also took much more time and resources to train as the model sizes increased. If the same network architecture is used in a model, the size of the model doesn’t seem to impact the model performance as much as changing the dataset or using a different model.
+
+Image quality affects accuracy more than hyperparameters or even model type since after switching from a 128x128 crop to a 224x224 crop, our models were able to achieve +10% accuracy. This makes sense since the dataset being trained on is improved and the model has more information to learn from.
 
 #### Broader Applications
 
+Using pretrained models and existing model architectures can achieve decently high performance in image classification without too much extra work from a user. This goes to show how powerful out-of-the-box networks can be for the average neural network enthusiast. We can use the same techniques of trying a variety of pre-trained models, tuning hyperparameters, and measuring validation and test accuracy to train models that can detect other animals and specific breeds, depending on the image dataset used.
+
 ### Resources we consulted
 
+* [Demo code provided in class](https://colab.research.google.com/drive/1kHo8VT-onDxbtS3FM77VImG35h_K_Lav#scrollTo=yRzPDiVzsyGz)
 * [List of torchvision models](https://pytorch.org/vision/stable/models.html)
 * [A disciplined approach to neural network hyper-parameters](https://arxiv.org/abs/1803.09820)
 * [This Model is for the Birds](https://towardsdatascience.com/this-model-is-for-the-birds-6d55060d9074)
