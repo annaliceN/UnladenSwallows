@@ -15,7 +15,7 @@
 Bird Kaggle Competition: Classifying different bird species from an image
 
 ie.
-> I.E. How do you tell the difference between an African and European swallow?
+> How do you tell the difference between an African and European swallow?
 
 #### Datasets
 
