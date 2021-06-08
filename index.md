@@ -1,10 +1,6 @@
 #### Donna Albee (albeed), Sam Lewis (sameul26), Annalice Ni (anni00), Eric Yoon (yoone2)
 
-### Context
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/liIlW-ovx0Y" title="YouTube video player"
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+### Project Video
 
 ### Introduction
 
@@ -19,6 +15,10 @@ These deep philosophical questions are what prompted us to work on classifying d
 > How do you tell the difference between an African and European swallow?
 
 And many more!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/liIlW-ovx0Y" title="YouTube video player"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 
 ##### Datasets and Data Augmentation
 
