@@ -40,9 +40,7 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
 
-Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model.
-
-#### Why the approach worked
+Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model. 
 
 ### Experiments
 
