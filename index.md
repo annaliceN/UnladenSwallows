@@ -30,7 +30,7 @@ For our dataset, we used the Bird Dataset provided by the Birds! Classification 
 
 #### Techniques
 
-We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get. We decided to use all of the ResNet models (18, 34, 50, 101, 154), WideResNet50, and both of the ResNext models (50, 101). Based on the list of torchvision models [here](https://pytorch.org/vision/stable/models.html) and also online blogs about image classification training, the accuracy of these groups of models were some of the highest of the ones provided. They were also similar in architecture, so it made sense to compare their experimental results. ResNet18 was the model used in the demo code provided in class, so we started with that model.
+We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get. We decided to use all of the ResNet models (18, 34, 50, 101, 152), WideResNet50, and both of the ResNext models (50, 101). Based on the list of torchvision models [here](https://pytorch.org/vision/stable/models.html) and also online blogs about image classification training, the accuracy of these groups of models were some of the highest of the ones provided. They were also similar in architecture, so it made sense to compare their experimental results. ResNet18 was the model used in the demo code provided in class, so we started with that model.
 
 After training and testing a few models, we realized that it would be necessary to create a validation set in order to get an idea for what our test accuracy may look like after every epoch of training. We created a validation dataset using 20% of the training dataset, and changed it to 10% later when we realized that taking too much of the training dataset to use as a validation set affected the accuracy of the models.
 
@@ -38,9 +38,21 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 #### Problems
 
-Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
+1. Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
 
-Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model. 
+    Some strategies we tried were:
+
+    * Scheduling learning rates to decrease as the number of epochs increased
+    * Using larger image size (from 128x128 to 224x224)
+    * Experimenting with weight decay
+    * Using a smaller validation dataset (from 20% to 10% of training data)
+    * Shrinking batch size
+
+    Changes that made the most difference were using a larger image size and scheduling the learning rates. The accuracy improving when we used larger image sizes made sense since there would be more information for the models to train off of and predict with.
+
+2. Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model.
+
+#### Why the approach worked
 
 ### Experiments
 
