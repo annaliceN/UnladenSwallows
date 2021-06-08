@@ -1,5 +1,5 @@
 ## Team Unladen Swallows
-## Donna Albee (albeed), Sam Lewis (sameul26), Annalice Ni (anni00), Eric Yoon (yoone2)
+#### Donna Albee (albeed), Sam Lewis (sameul26), Annalice Ni (anni00), Eric Yoon (yoone2)
 
 ### Context:
 
@@ -17,10 +17,10 @@ Seemingly everywhere, birds can be found at almost any time of the day. Their tw
 
 These deep philosophical questions are what prompted us to work on classifying different bird species for our final project. Through the Birds! Kaggle Competition, our goal was to train a model that would classify birds in an image. This would allow us to answer important questions like
 
-> How do you tell the difference between an African and European swallow? <
+> How do you tell the difference between an African and European swallow?
 
 And many more! 
 
-#### Datasets
+#### Datasets and Data Augmentation
 
-We used the Bird Dataset provided by the Bird Classification Kaggle Competition by Joseph Redmon
+For our dataset, we used the Bird Dataset provided by the Bird Classification Kaggle Competition by Joseph Redmond. This dataset had approximately 50,000 images in it and 555 unique classes of birds. 
