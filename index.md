@@ -80,6 +80,10 @@ advancement of the ResNet models and its accuracy shown in the torchvision docum
 
 We've included the following charts that show the best accuracies and lowest losses we ended up with for each model after trying different hyperparameters and epochs for each. We didn't get the test accuracy for a few of the models because we decided it wasn't worth submitting as the validaction accuracy wasn't high enough.
 
+![Test and Validation Accuracy](images/test_val_accuracy.png)
+
+![Training and Validation Loss](images/train_val_loss.png)
+
 ### Discussion
 
 #### What did / did not work well and why
