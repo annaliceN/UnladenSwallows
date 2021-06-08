@@ -38,6 +38,9 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 #### Problems
 
+Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
+
+
 #### Why the approach worked
 
 ### Experiments
@@ -48,10 +51,16 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 #### Best Overall
 
-The model that performed the best overall was ResNext101. This was unsurprising since the model was meant to be an
-advancement of the ResNet models and the accuracy shown in documentation was one of the highest.
+The model that performed the best overall was ResNext101. This was unsurprising since the model was an
+advancement of the ResNet models and its accuracy shown in the torchvision documentation was one of the highest. We ended with a **86.6% test accuracy** when running ResNext101 with the following hyperparameters:
+
+* Epochs: 28
+* Learning rate schedule: 0:.01, 4:.001, 12:.0001
+* Weight decay: 0.001
 
 #### Findings
+
+We've included the following charts that show the best accuracies and lowest losses we ended up with for each model after trying different hyperparameters and epochs for each. We didn't get the test accuracy for a few of the models because we decided it wasn't worth submitting as the validaction accuracy wasn't high enough.
 
 ### Discussion
 
