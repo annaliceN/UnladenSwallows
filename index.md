@@ -23,4 +23,4 @@ And many more!
 
 #### Datasets and Data Augmentation
 
-For our dataset, we used the Bird Dataset provided by the Bird Classification Kaggle Competition by Joseph Redmond. This dataset had approximately 50,000 images in it and 555 unique classes of birds. 
+For our dataset, we used the Bird Dataset provided by the Birds! Classification Kaggle Competition by Joseph Redmond. This dataset has approximately 50,000 images in it and 555 unique classes of birds. When processing images, we used both 224 x 224 and 128 x 128 images, as well as random modifications to images to diversify our training set. The transformations included cropping images and flipping images.
