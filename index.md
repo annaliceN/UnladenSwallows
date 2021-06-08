@@ -8,7 +8,7 @@
 
 ### Introduction
 
-#### The Problem
+##### The Problem
 
 What are birds?
 
@@ -20,13 +20,13 @@ These deep philosophical questions are what prompted us to work on classifying d
 
 And many more!
 
-#### Datasets and Data Augmentation
+##### Datasets and Data Augmentation
 
 For our dataset, we used the Bird Dataset provided by the Birds! Classification Kaggle Competition by Joseph Redmond. This dataset has approximately 50,000 images in it and 555 unique classes of birds. When processing images, we used both 224 x 224 and 128 x 128 images, as well as random modifications to images to diversify our training set. The transformations included cropping images and flipping images.
 
 ### Approach
 
-#### Techniques
+##### Techniques
 
 We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get.
 
@@ -42,7 +42,7 @@ After training and testing a few models, we realized that it would be necessary 
 
 We also attempted to combine the results of multiple models to try and increase accuracy overall. After making predictions on different models and submitting to see  test accuracy, we selected some of the highest-accuracy models. Using the predictions from these models, we combined the predictions for each image by picking the mode class from all the predicted classes. If there were multiple modes, we picked the class from the highest-accuracy model. This did not work very well, which we will discuss in a later section.
 
-#### Problems
+##### Problems
 
 1. Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
 
@@ -60,11 +60,11 @@ We also attempted to combine the results of multiple models to try and increase 
 
 ### Experiments and Results
 
-#### Things we tried
+##### Things we tried
 
 We experimented with different pretrained models. We wanted to see what pretrained models worked best with bird classification. We tried models like ResNet, ResNext and WideResNet as well as different variations of each model. For each model, we also experimented with different hyperparameters. Adjusting things like learning rate, weight decay and validation set size allowed us to increase accuracy. Another thing we tried adjusting was image size. We initially used 128 x 128 images, but later switched to 224 x 224 images.
 
-#### Best Overall
+##### Best Overall
 
 The model that performed the best overall was ResNext101. This was unsurprising since the model was an
 advancement of the ResNet models and its accuracy shown in the torchvision documentation was one of the highest. We ended with a **86.6% test accuracy** when running ResNext101 on a 224x224 image size dataset with the following hyperparameters:
@@ -74,7 +74,7 @@ advancement of the ResNet models and its accuracy shown in the torchvision docum
 * Weight decay: 0.001
 * Momentum: 0.9
 
-#### Findings
+##### Findings
 
 We've included the following charts that show the best accuracies and lowest losses we ended up with for each model after trying different hyperparameters and epochs for each. We didn't get the test accuracy for a few of the models because we decided it wasn't worth submitting as the validaction accuracy wasn't high enough.
 
@@ -84,7 +84,7 @@ We've included the following charts that show the best accuracies and lowest los
 
 ### Discussion
 
-#### What did / did not work well and why
+##### What did / did not work well and why
 
 Models with greater model sizes don’t necessarily mean better performance. ResNext models all tended to perform with higher accuracy than any of the ResNet or WideResNet models. On top of this, Increasing the size of a ResNet model did not result in dramatic improvements. Instead, model training and memory requirements became much greater. A model of greater size also means high model complexity, which can potentially lead to overfitting and thus not affect accuracy much.
 
@@ -94,13 +94,13 @@ Attempting to combine the results of multiple models did not work very well. For
 
 We could have been more scientific in our experiment approach. Early on in our testing, we changed many hyperparameters at once, like epoch size, learning_rate, and model type. It would have been a better approach scientifically to keep most hyperparameters as control, and changing only one at a time. When something seemed to work, we took the hyperparameters of that training session to use on a better model since we didn’t have infinite time to train each model on all the potential hyperparameters.
 
-#### Learnings
+##### Learnings
 
 ResNet has increasing model sizes, but they did not result in better accuracy. Switching to a different type of model like ResNext was much better for accuracy. These ResNet variations also took much more time and resources to train as the model sizes increased. If the same network architecture is used in a model, the size of the model doesn’t seem to impact the model performance as much as changing the dataset or using a different model.
 
 Image quality affects accuracy more than hyperparameters or even model type since after switching from a 128x128 crop to a 224x224 crop, our models were able to achieve +10% accuracy. This makes sense since the dataset being trained on is improved and the model has more information to learn from.
 
-#### Broader Applications
+##### Broader Applications
 
 Using pretrained models and existing model architectures can achieve decently high performance in image classification without too much extra work from a user. This goes to show how powerful out-of-the-box networks can be for the average neural network enthusiast. We can use the same techniques of trying a variety of pre-trained models, tuning hyperparameters, and measuring validation and test accuracy to train models that can detect other animals and specific breeds, depending on the image dataset used.
 
