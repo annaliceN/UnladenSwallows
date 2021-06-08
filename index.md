@@ -32,6 +32,8 @@ For our dataset, we used the Bird Dataset provided by the Birds! Classification 
 
 We were unfamiliar with the Pytorch image classification networks, so we tried running as many as possible to see what kind of different results we would get. We decided to use all of the ResNet models (18, 34, 50, 101, 154), WideResNet50, and both of the ResNext models (50, 101). Based on the list of torchvision models [here](https://pytorch.org/vision/stable/models.html) and also online blogs about image classification training, the accuracy of these groups of models were some of the highest of the ones provided. They were also similar in architecture, so it made sense to compare their experimental results. ResNet18 was the model used in the demo code provided in class, so we started with that model.
 
+After training and testing a few models, we realized that it would be necessary to create a validation set in order to get an idea for what our test accuracy may look like after every epoch of training. We created a validation dataset using 20% of the training dataset, and changed it to 10% later when we realized that taking too much of the training dataset to use as a validation set affected the accuracy of the models.
+
 #### Problems
 
 #### Why the approach worked
