@@ -54,11 +54,9 @@ We also attempted to aggregate the results of multiple models to try and increas
 
 #### Why the approach worked
 
-### Experiments
+### Experiments and Results
 
 #### Things we tried
-
-### Results
 
 #### Best Overall
 
