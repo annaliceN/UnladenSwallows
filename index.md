@@ -42,22 +42,6 @@ After training and testing a few models, we realized that it would be necessary 
 
 We also attempted to combine the results of multiple models to try and increase accuracy overall. After making predictions on different models and submitting to see  test accuracy, we selected some of the highest-accuracy models. Using the predictions from these models, we combined the predictions for each image by picking the mode class from all the predicted classes. If there were multiple modes, we picked the class from the highest-accuracy model. This did not work very well, which we will discuss in a later section.
 
-##### Problems
-
-1. Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
-
-    Some strategies we tried were:
-
-    * Scheduling learning rates to decrease as the number of epochs increased
-    * Using larger image size (from 128x128 to 224x224)
-    * Experimenting with weight decay
-    * Using a smaller validation dataset (from 20% to 10% of training data)
-    * Shrinking batch size
-
-    Changes that made the most difference were using a larger image size and scheduling the learning rates. The accuracy improving when we used larger image sizes made sense since there would be more information for the models to train off of and predict with.
-
-2. Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model.
-
 ### Experiments and Results
 
 ##### Things we tried
@@ -83,6 +67,22 @@ We've included the following charts that show the best accuracies and lowest los
 ![Training and Validation Loss](images/train_val_loss.png)
 
 ### Discussion
+
+##### Challenges
+
+1. Overfitting was the main problem we encountered when training our models as the training loss would often be >0.4 less than the validation loss for a given epoch, and the test accuracy was lower than the reported validation accuracy. We tried a few strategies to mitigate this effect, and were mostly successful at finding a good set of hyperparameters to train a model with.
+
+    Some strategies we tried were:
+
+    * Scheduling learning rates to decrease as the number of epochs increased
+    * Using larger image size (from 128x128 to 224x224)
+    * Experimenting with weight decay
+    * Using a smaller validation dataset (from 20% to 10% of training data)
+    * Shrinking batch size
+
+    Changes that made the most difference were using a larger image size and scheduling the learning rates. The accuracy improving when we used larger image sizes made sense since there would be more information for the models to train off of and predict with.
+
+2. Another issue we found was that free Google Colab accounts did not have enough memory for the experiments we wanted to try. Initially, we resized images to be 128 x 128, however, when we tried to use larger images, the GPU would run out of memory. We were able to use images of size 244 x 244, but were unable to images larger than that. This was unfortunate, as larger images would have likely increased the accuracy of the model.
 
 ##### What did / did not work well and why
 
