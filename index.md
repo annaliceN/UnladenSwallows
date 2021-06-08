@@ -1,6 +1,4 @@
-## Team Unladen Swallows
-
-#### Donna Albee (albeed), Sam Lewis (sameul26), Annalice Ni (anni00), Eric Yoon (yoone2)
+Team: Donna Albee (albeed), Sam Lewis (sameul26), Annalice Ni (anni00), Eric Yoon (yoone2)
 
 ### Context
 
